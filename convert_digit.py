@@ -31,6 +31,7 @@ for i in range(len(y_revers) - 1, -1, -1):
     
 # print(y, end = '\n') # shifting down after end of printing
 # print(y, end = '') # doing nothing after end of printing
-# printing with separator, notice, that parameters are written without spaces.
-print('Hello,', y, sep='--')
 print(y)
+
+# printing with separator, notice, that parameters are written without spaces.
+# print('Hello,', y, sep='--')
