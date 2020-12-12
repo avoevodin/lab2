@@ -3,7 +3,6 @@
 import string
 
 alph = string.ascii_lowercase
-print(alph)
 
 print('Input number in dec')
 x = int(input())
