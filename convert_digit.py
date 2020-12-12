@@ -27,8 +27,10 @@ while x > 0:
     x //= base
   
 for i in range(len(y_revers) - 1, -1, -1):
-    y += y_revers[i] 
+    y += y_revers[i]
     
 # print(y, end = '\n') # shifting down after end of printing
 # print(y, end = '') # doing nothing after end of printing
+# printing with separator, notice, that parameters are written without spaces.
+print('Hello,', y, sep='--')
 print(y)
