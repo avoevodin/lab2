@@ -10,7 +10,7 @@ def insert_sort(A):
     for top in range(1, len_A):
         i = top
         while i > 0 and A[i] < A[i-1]: # i > 0 at the first place because
-                                       # if i = 0, second operator won't be
+                                       # if i = 0, second part of invariant won't be
                                        # calculated
             A[i], A[i-1] = A[i-1], A[i]
             i -= 1 
