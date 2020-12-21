@@ -4,6 +4,11 @@ import graphics as gr
 import time
 
 def fractal_rectangle(a, b, c, d, deep = 8):
+    '''Drawing rectangle by it's vertexes positions
+    
+    a, b, c, d -- corteges of two int coordinates х and y ((0.0, 0.0))
+    deep -- deep of recursion drawing
+    '''
     if deep < 1:
         return
     for m, n in (a, b), (b, c), (c, d), (d, a):
