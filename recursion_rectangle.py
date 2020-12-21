@@ -1,30 +1,36 @@
-# Drawing of nested squares with recursion 
+'''Drawing of nested squares with recursion
 
-import graphics as gr
+'''
+
 import time
+import graphics as gr
 
-def fractal_rectangle(a, b, c, d, deep = 8):
+def fractal_rectangle(vert_a, vert_b, vert_c, vert_d, deep = 8):
     '''Drawing rectangle by it's vertexes positions
-    
-    a, b, c, d -- corteges of two int coordinates х and y ((0.0, 0.0))
+
+    Keyword arguments:
+    vert_a, vert_b, vert_c, vert_d -- corteges of two int coordinates
+                                      х and y ((0.0, 0.0))
     deep -- deep of recursion drawing
+
     '''
     if deep < 1:
         return
-    for m, n in (a, b), (b, c), (c, d), (d, a):
-        gr.Line(gr.Point(*m), gr.Point(*n)).draw(win)
-    a1 = (a[0] * (1 - SHIFT_K) + b[0] * SHIFT_K, 
-        a[1] * (1 - SHIFT_K) + b[1] * SHIFT_K)
-    b1 = (b[0] * (1 - SHIFT_K) + c[0] * SHIFT_K, 
-        b[1] * (1 - SHIFT_K) + c[1] * SHIFT_K)
-    c1 = (c[0] * (1 - SHIFT_K) + d[0] * SHIFT_K, 
-        c[1] * (1 - SHIFT_K) + d[1] * SHIFT_K)
-    d1 = (d[0] * (1 - SHIFT_K) + a[0] * SHIFT_K, 
-        d[1] * (1 - SHIFT_K) + a[1] * SHIFT_K)
-    fractal_rectangle(a1, b1, c1, d1, deep - 1)
-    
+    for vert_m, vert_n in ((vert_a, vert_b), (vert_b, vert_c),
+        (vert_c, vert_d), (vert_d, vert_a)):
+        gr.Line(gr.Point(*vert_m), gr.Point(*vert_n)).draw(win)
+    vert_a1 = (vert_a[0] * (1 - SHIFT_K) + vert_b[0] * SHIFT_K,
+        vert_a[1] * (1 - SHIFT_K) + vert_b[1] * SHIFT_K)
+    vert_b1 = (vert_b[0] * (1 - SHIFT_K) + vert_c[0] * SHIFT_K,
+        vert_b[1] * (1 - SHIFT_K) + vert_c[1] * SHIFT_K)
+    vert_c1 = (vert_c[0] * (1 - SHIFT_K) + vert_d[0] * SHIFT_K,
+        vert_c[1] * (1 - SHIFT_K) + vert_d[1] * SHIFT_K)
+    vert_d1 = (vert_d[0] * (1 - SHIFT_K) + vert_a[0] * SHIFT_K,
+        vert_d[1] * (1 - SHIFT_K) + vert_a[1] * SHIFT_K)
+    fractal_rectangle(vert_a1, vert_b1, vert_c1, vert_d1, deep - 1)
+
 win = gr.GraphWin("Russian game", 300, 300)
-    
-SHIFT_K = 0.1    
+
+SHIFT_K = 0.1
 fractal_rectangle((2, 2), (202, 2), (202, 202), (2, 202), 100)
 time.sleep(10)
