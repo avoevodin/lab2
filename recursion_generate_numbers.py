@@ -3,10 +3,10 @@
 '''
 def generate_numbers(num_base: int, dig_amount: int, prefix = None):
     '''Generating numbers with selected digits amount.
-    num_base -- base of number (int)
-    dig_amount -- digits amount of numbers (int)
-    prefix -- current list of generated digits (list
-    )
+    num_base -- base of number, less than 10 (int)
+    dig_amount -- digits amount of numbers, positive integer (int)
+    prefix -- current list of generated digits (list)
+    
     '''
     prefix = prefix or []
     if dig_amount == 0:
