@@ -4,7 +4,7 @@
 def find_number(prefix, number):
     '''Find selected number in current prefix of permutations.
     If number is found, returns True, else False.
-    
+
     Keyword arguments:
     prefix -- list of numbers (list)
     number -- number for checking (int)
@@ -15,7 +15,7 @@ def find_number(prefix, number):
         if i == number:
             res = True
             break
-    return res    
+    return res
 
 def generate_permutations(num_amount: int, pos_amount: int = -1, prefix = None):
     '''Generate all permutations for num_amount numbers in pos_amount
@@ -41,10 +41,10 @@ def generate_permutations(num_amount: int, pos_amount: int = -1, prefix = None):
         prefix.append(number)
         generate_permutations(num_amount, pos_amount - 1, prefix)
         del prefix[-1]
-    
+
 def test_permutations():
     '''Common test for permutations.
-    
+
     '''
     test_case_gen_numbers(3, "1")
     test_case_gen_numbers(4, "2")
