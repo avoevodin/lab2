@@ -103,12 +103,39 @@ def merge_sort_alt(num_list, left_side: int = None, right_side: int = None):
     merge_sort_alt(num_list, middle + 1, right_side)
     merge_sorted_parts_alt(num_list, left_side, middle, right_side)
 
+def hoar_sort(num_list:list):
+    '''Sort list with Tony Hoar method.
+
+    Keyword arguments:
+    num_list -- list of numbers (list)
+
+    '''
+    if len(num_list) < 2:
+        return
+    barrier = num_list[0]
+    left_part = []
+    middle_part = []
+    right_part = []
+    for elem in num_list:
+        if elem < barrier:
+            left_part.append(elem)
+        elif elem == barrier:
+            middle_part.append(elem)
+        else:
+            right_part.append(elem)
+    hoar_sort(left_part)
+    hoar_sort(right_part)
+    i = 0
+    for elem in left_part + middle_part + right_part:
+        num_list[i] = elem
+        i += 1
+
 def test_sort(sort_algorithm):
     '''Tests for selected sort algorithm'''
 
     # Write a description of executable method
     alg_doc = sort_algorithm.__doc__
-    idx_lb = alg_doc.index('\n')
+    idx_lb = alg_doc.index('.\n')
     print("Testing: ", alg_doc[:idx_lb])
 
     test_list = [4, 2, 5]
@@ -142,3 +169,5 @@ if __name__ == "__main__":
     start_time = time.time()
     test_sort(merge_sort_alt)
     print('t: ', '--- %s seconds ---' % (time.time() - start_time))
+
+    test_sort(hoar_sort)
