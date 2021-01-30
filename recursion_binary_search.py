@@ -1,15 +1,16 @@
-'''Binary search.
+"""Binary search.
 
-'''
+"""
+
 
 def left_bound(num_list: list, key: int):
-    '''Search left bound for target interval of found numbers.
+    """Search left bound for target interval of found numbers.
 
     Keyword arguments:
     num_list -- list of numbers (list)
     key -- number that's searched for (int)
 
-    '''
+    """
     left = -1
     right = len(num_list)
     while right - left > 1:
@@ -20,14 +21,15 @@ def left_bound(num_list: list, key: int):
             right = middle
     return left
 
+
 def right_bound(num_list: list, key: int):
-    '''Search right bound for target interval of found numbers.
+    """Search right bound for target interval of found numbers.
 
     Keyword arguments:
     num_list -- list of numbers (list)
     key -- number that's searched for (int)
 
-    '''
+    """
     left = -1
     right = len(num_list)
     while right - left > 1:
@@ -38,35 +40,38 @@ def right_bound(num_list: list, key: int):
             right = middle
     return right
 
+
 def find_number(num_list: list, key: int):
-    '''Search selected number in the list.
+    """Search selected number in the list.
 
     Keyword arguments:
     num_list -- list of numbers (list)
     key -- number that's searched for (int)
 
-    '''
+    """
     left = left_bound(num_list, key)
     right = right_bound(num_list, key)
     return generate_result(left, right)
 
-def generate_result(left, right):
-    '''Generate result with left and right bound of found interval.
 
-    '''
+def generate_result(left, right):
+    """Generate result with left and right bound of found interval.
+
+    """
     if right - left == 1:
         res = "Number wasn't found"
     elif right - left == 2:
         res = "Number's index is " + str(left + 1)
     else:
         res = ("Searched number's indexes are from " + str(left + 1)
-            + " to " + str(right - 1))
+               + " to " + str(right - 1))
     return res
 
-def test_binary_search():
-    '''Common tests for module.
 
-    '''
+def test_binary_search():
+    """Common tests for module.
+
+    """
     num_list = [1, 2, 5, 8, 10, 24, 48, 100, 120]
     key = 10
     res = generate_result(3, 5)
@@ -92,14 +97,16 @@ def test_binary_search():
     res = generate_result(-1, 0)
     test_case_binary_search(num_list, key, res, "5")
 
-def test_case_binary_search(num_list, key, res, case_name):
-    '''Test case for binary search.
 
-    '''
+def test_case_binary_search(num_list, key, res, case_name):
+    """Test case for binary search.
+
+    """
     print("testcase #", case_name, ": ", end="")
     res_counted = find_number(num_list, key)
-    print("Ok" if res == res_counted else "Fail", end = ":\n")
-    print(res, res_counted, sep = "\n")
+    print("Ok" if res == res_counted else "Fail", end=":\n")
+    print(res, res_counted, sep="\n")
+
 
 if __name__ == '__main__':
     test_binary_search()
